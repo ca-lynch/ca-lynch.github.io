@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Cody Lynch - Final Project</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link href="css/small-business.css" rel="stylesheet">
+
+	<style>
+		table {
+			margin-left: auto;
+			width: 100%;
+			text-align: center;
+		}
+		
+		h3 {
+			text-align: center;
+		}
+	</style>
+
+</head>
+
+<body>
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="http://calynch2.heyuhnem.com/index.html">Home</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a class="nav-link" href="http://calynch2.heyuhnem.com/cody-lynch-directions.html">Directions</a></li>
+					<li class="nav-item"><a class="nav-link" href="http://calynch2.heyuhnem.com/cody-lynch-contact.html">Contact</a></li>
+					<li class="nav-item"><a class="nav-link" href="http://calynch2.heyuhnem.com/cody-lynch-youtube.html">Youtube</a></li>
+					<li class="nav-item"><a class="nav-link" href="http://calynch2.heyuhnem.com/cody-lynch-photo-gallery.html">Gallery</a></li>
+					<li class="nav-item"><a class="nav-link" href="http://calynch2.heyuhnem.com/sitemap.html">Sitemap</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<h1>Sitemap</h1>
+
+	<br>
+	<h3>Here is the sitemap for my website:</h3>
+	<br>
+
+<script>
+
+	/*------------------------ vars ------------------------*/
+	var file = "sitemap.xml";
+
+	/*------------------------ parser ------------------------*/
+	var Connect = new XMLHttpRequest();
+	Connect.open("GET", file , false);
+	Connect.setRequestHeader("Content-Type", "text/xml");
+	Connect.send(null);
+	var TheDocument = Connect.responseXML;
+	var XMLs = TheDocument.childNodes[0];
+
+	/*------------------------ output ------------------------*/
+	document.write("<table>");
+	document.write("<tr><th>URL</th></tr>");
+	for (var i = 0; i < XMLs.children.length; i++){
+		var XML = XMLs.children[i];
+
+		var loc = XML.getElementsByTagName("loc");
+		var locstr = loc[0].textContent.toString();
+		var locurl = locstr.link(loc[0].textContent.toString());
+
+		document.write("<tr><td>");
+		document.write(locurl);
+		document.write("</td></tr>");
+
+	}
+
+	document.write("</table>");
+
+</script>
+
+	<br>
+
+	<!-- Footer -->
+	<footer class="py-5 bg-dark">
+		<div class="container">
+			<p class="m-0 text-center text-white"> Copyright &copy; <script>document.write(new Date().getFullYear())</script> Cody Lynch</p>
+		</div>
+    <!-- /.container -->
+	</footer>
+
+  <!-- Bootstrap core JavaScript -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
